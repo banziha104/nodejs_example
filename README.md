@@ -1,5 +1,5 @@
 ---
-# Node.js 
+# Node.js 개요
 ---
 
 ---
@@ -16,7 +16,6 @@
 <li> Javascript는 변수에 함수를 할당가능, 그러므로 다른 함수에 파라미터로 전달이 가능하고, 이렇게 전달된 함수를 다른 삼수의 내부에서 호출하는 것이 콜백함수.
 
 ```javascript 
-
 function add(a,b,callback){
  var result = a+b;
  callback(result);
@@ -25,7 +24,6 @@ function add(a,b,callback){
 add(10,10,function(result){
 console.log('(10,10)의 결과 : %d',result);
 });
-
 ```
 
 ---
@@ -176,7 +174,48 @@ var Person1 = new Person('a',10);
 var Person2 = new Person('b',20);
 Person1.walk(10);
 ```
+
 <li> 함수 또한 객체고 객체의 역할을 할 수 있음. 함수 중에 new 연산자로 호출되는 함수는 객체를 만들기 위한 함수로 분류되며, 이러한 함수를 '생성자'라 함.
 <li> this는 함수를 호출하는 객체를 가르킴.
 
----##
+---
+## 주소문자열과 요청 파라미터 다루기(Url 모듈 및 객체)
+
+https://www.google.co.kr/search?q=nodejs&oq=nodejs&aqs=chrome..69i57j69i60j0j69i60l2j35i39.1339j0j4&sourceid=chrome&ie=UTF-8
+
+<li> protocol : 'https'
+<li> host : 'www.google.co.kr'
+<li> query : 'search?q=nodejs&oq=nodejs&aqs=chrome..69i57j69i60j0j69i60l2j35i39.1339j0j4&sourceid=chrome&ie=UTF-8'
+
+#### 주소 문자열을 URL 객체로 변환하기
+<li> parse() : 주소 문자열을 파싱하여 URL 객체를 만들어 줌.
+<li> format() : URL 객체를 주소 문자열로 변환한다.
+
+```javascript
+var url = require('url');
+//문자열을 URL 객체로 변환
+var curURL = url.parse('https://www.google.co.kr/search?q=nodejs&oq=nodejs&aqs=chrome..69i57j69i60j0j69i60l2j35i39.1339j0j4&sourceid=chrome&ie=UTF-8'
+)
+// URL 객체를 문자열로 변환
+var curStr = url.format(curURL); 
+```
+
+#### 요청 파라미터 확인하기(querystring 모듈)
+<li> parse() : 요청 파라미터 문자열을 파싱하여 요청 파라미터 객체로 변환
+<li> stringfy() : 요청파라미터를 객체 문자열로 반환함. 
+
+```javascript
+var querystirng = require('querystring');
+var param = querystring.parse(curURL.query);
+```
+
+---
+## 이벤트 
+
+<li> on(event,listener) : 지정한 이벤트의 리스너를 추가
+<li> once(event,listener) : on과 같지만 한번 사용후 소멸 
+<li> removeListener(event,listener) : 지정한 이벤트에 대한 리스너 제거
+<li> emit(event) : 이벤트 발행
+
+---
+
