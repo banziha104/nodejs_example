@@ -93,6 +93,7 @@ Path 모듈
 
 *변수안에 함수를 넣는 방법
 <li>객체와 동시에 초기화
+
 ```javascript
 var Person = {
 	age : 10,
@@ -102,6 +103,7 @@ var Person = {
 };
 ```
 <li> 변수에 추가
+
 ```javacript
 var Person = {};
 Person['age'] = 10;
@@ -111,6 +113,7 @@ Person.add = function{
 ```
 
 <li>객체에 할당
+
 ```javascript
 var Person = {
 	age : 10
@@ -138,6 +141,7 @@ delete Users[1];
 
 ###	배열 요소 확인
 <li> for 문으로 배열의 요소를 확인
+
 ```javascript
 var Users = [{name : 'a' , age : 10},{name : 'b' , age : 20}];
 for(var i = 0 ; i < Users.length ; i ++){
@@ -146,6 +150,7 @@ for(var i = 0 ; i < Users.length ; i ++){
 }
 ```
 <li>forEach 문으로 배열의 요소를 확인
+
 ```javascript
 
 Users.forEach(function (item, i) { //Callback 함수의 첫번째 파라미터는 배열 객체, 두번째는 인덱스
@@ -156,6 +161,7 @@ Users.forEach(function (item, i) { //Callback 함수의 첫번째 파라미터�
 ## 프로토타입 객체 
 <li>객체 지향의 객체의 원형과 비슷한 역할
 <li>인스턴스를 만들어내는데 사용.
+
 ```javascript
 function Person(name,age){
 this.name = name;
