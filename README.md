@@ -104,7 +104,7 @@ var Person = {
 ```
 <li> 변수에 추가
 
-```javacript
+```javascript
 var Person = {};
 Person['age'] = 10;
 Person.add = function{
