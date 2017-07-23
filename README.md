@@ -15,6 +15,7 @@
 <li> 특정 시점에 자동으로 호출되는 함수
 <li> Javascript는 변수에 함수를 할당가능, 그러므로 다른 함수에 파라미터로 전달이 가능하고, 이렇게 전달된 함수를 다른 삼수의 내부에서 호출하는 것이 콜백함수.
 ```javascript 
+
 function add(a,b,callback){
  var result = a+b;
  callback(result);
@@ -23,6 +24,7 @@ function add(a,b,callback){
 add(10,10,function(result){
 console.log('(10,10)의 결과 : %d',result);
 });
+
 ```
 
 ---
