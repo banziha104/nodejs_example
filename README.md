@@ -1,5 +1,5 @@
 ---
-# Node.js 개요
+# Node.js 
 ---
 
 ---
@@ -14,6 +14,16 @@
 ---
 <li> 특정 시점에 자동으로 호출되는 함수
 <li> Javascript는 변수에 함수를 할당가능, 그러므로 다른 함수에 파라미터로 전달이 가능하고, 이렇게 전달된 함수를 다른 삼수의 내부에서 호출하는 것이 콜백함수.
+```javascript 
+function add(a,b,callback){
+ var result = a+b;
+ callback(result);
+}
+
+add(10,10,function(result){
+console.log('(10,10)의 결과 : %d',result);
+});
+```
 
 ---
 ## 모듈 (Module)
@@ -72,3 +82,92 @@ Path 모듈
 <li> basename() : 파일 패스에서 파일의 확장자를 제외한 이름을 반환
 <li> extname() : 파일 패스에서 파일의 확장자를 반환
 
+---
+## 함수
+<li>var add = function(a,b){}의 형태
+
+<li>function add(a,b){} 는 익명함수
+
+*변수안에 함수를 넣는 방법
+<li>객체와 동시에 초기화
+```javascript
+var Person = {
+	age : 10,
+	add : function(a,b){
+	 return a+b;
+	}
+};
+```
+<li> 변수에 추가
+```javacript
+var Person = {};
+Person['age'] = 10;
+Person.add = function{
+	return a+b;
+}
+```
+
+<li>객체에 할당
+```javascript
+var Person = {
+	age : 10
+}
+var add = function(a,b){
+	return a+b;
+}
+Person['add'] = add;
+```
+
+---
+## 배열
+---
+### 배열에 값 추가 삭제
+<li> push(object) : 배열의 끝에 요소를 추가
+<li> pop() : 배열 끝요소를 삭제
+<li> unshift( ) : 배열의  첫요소에 추가
+<li> shift() :  배열의 첫요소를 제거ㅗㅇㅜㄴ ㅂ배열로 만듬
+<li> slice(index, count) : index부터 count만큼의 배열을 복사해 새로운 배열을 만듬.
+<li> delete 배열 중간의 요소를 삭제
+```javascript
+var Users = [{name : 'a' , age : 10},{name : 'b' , age : 20}];
+delete Users[1];
+```
+
+###	배열 요소 확인
+<li> for 문으로 배열의 요소를 확인
+```javascript
+var Users = [{name : 'a' , age : 10},{name : 'b' , age : 20}];
+for(var i = 0 ; i < Users.length ; i ++){
+    console.log('배열 요소 #' + i + ':%s', Users[i].name);
+}
+}
+```
+<li>forEach 문으로 배열의 요소를 확인
+```javascript
+
+Users.forEach(function (item, i) { //Callback 함수의 첫번째 파라미터는 배열 객체, 두번째는 인덱스
+   console.log('배열 요소 #' + i + ':%s', item.name);
+});
+```
+
+## 프로토타입 객체 
+<li>객체 지향의 객체의 원형과 비슷한 역할
+<li>인스턴스를 만들어내는데 사용.
+```javascript
+function Person(name,age){
+this.name = name;
+this.age = age;
+}
+
+Person.prototype.walk = function(speed){
+ console.log(speed+ 'km 속도로 걸어감');
+}
+
+var Person1 = new Person('a',10);
+var Person2 = new Person('b',20);
+Person1.walk(10);
+```
+<li> 함수 또한 객체고 객체의 역할을 할 수 있음. 함수 중에 new 연산자로 호출되는 함수는 객체를 만들기 위한 함수로 분류되며, 이러한 함수를 '생성자'라 함.
+<li> this는 함수를 호출하는 객체를 가르킴.
+
+---##
